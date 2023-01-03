@@ -1,4 +1,4 @@
-package ProjetJava.Mastermind;
+package ProjetJava.MastermindJavaFX;
 
 import java.awt.*;
 
