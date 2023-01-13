@@ -1,10 +1,7 @@
 package ProjetJava.MastermindJavaFX;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Observable;
+import java.util.*;
 
 public class Modele extends Observable {
 
@@ -26,6 +23,8 @@ public class Modele extends Observable {
         this.combinaison = new Rangee();
         this.propositions = new Rangee[N_TENTATIVES];
         this.tentative = 0;
+
+        new_game();
     }
 
     public void archiver(Rangee r) {
@@ -88,6 +87,14 @@ public class Modele extends Observable {
 
         this.setChanged();
         this.notifyObservers(this.propositions);
+    }
+
+    public void new_game() {
+        Random rand = new Random();
+        for (int i = 0; i < Modele.DIFFICULTE; i++) {
+            this.combinaison.jetons[i] = Modele.COULEURS[rand.nextInt(Modele.COULEURS.length)];
+        }
+        this.propositions[0] = new Rangee();
     }
 
     public void annuler() {
