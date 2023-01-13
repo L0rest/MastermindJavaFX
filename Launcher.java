@@ -15,7 +15,7 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("HelloWorldTest.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MastermindTemplate.fxml"));
 
         Scene scene = new Scene(root);
 
