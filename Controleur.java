@@ -5,8 +5,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 
 import java.awt.*;
 import java.net.URL;
@@ -16,6 +18,7 @@ import java.util.ResourceBundle;
 public class Controleur implements Initializable {
 
     public Canvas canvas;
+    public HBox clavier;
     Modele modl;
     public HashMap<String,Color> couleurs = new HashMap<>();
 
@@ -45,8 +48,8 @@ public class Controleur implements Initializable {
     }
 
     public void drawShapes() {
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.clearRect(0.0,0.0, canvas.getWidth(), canvas.getHeight());
+        GraphicsContext gcanv = canvas.getGraphicsContext2D();
+        gcanv.clearRect(0.0,0.0, canvas.getWidth(), canvas.getHeight());
 
         for (int i = 0; i < this.modl.propositions.length; i++) {
             if (this.modl.propositions[i] != null) {
@@ -54,22 +57,24 @@ public class Controleur implements Initializable {
                     if (this.modl.propositions[i].jetons[j] != null) {
                         Color currColor = this.modl.propositions[i].jetons[j];
                         javafx.scene.paint.Paint fxColor = javafx.scene.paint.Color.rgb(currColor.getRed(), currColor.getGreen(), currColor.getBlue(), 1.0);
-                        gc.setFill(fxColor);
-                        gc.fillOval((60 * j) + 30, (60 * i) + 10, 40, 40);
+                        gcanv.setFill(fxColor);
+                        gcanv.fillOval((60 * j) + 30, (60 * i) + 10, 40, 40);
                     }
                 }
                 for (int j = 0; j < this.modl.propositions[i].noirs + this.modl.propositions[i].blancs; j++) {
                     if (j < this.modl.propositions[i].noirs) {
-                        gc.setFill(javafx.scene.paint.Color.BLACK);
-                        gc.fillOval(270 + (20 * j), (60 * i) + 10, 15, 15);
+                        gcanv.setFill(javafx.scene.paint.Color.BLACK);
+                        gcanv.fillOval(270 + (20 * j), (60 * i) + 10, 15, 15);
                     } else {
-                        gc.setFill(javafx.scene.paint.Color.WHITE);
-                        gc.fillOval(270 + (20 * j), (60 * i) + 10, 15, 15);
+                        gcanv.setFill(javafx.scene.paint.Color.WHITE);
+                        gcanv.fillOval(270 + (20 * j), (60 * i) + 10, 15, 15);
                     }
                 }
 
             }
         }
+
+        modif_clavier();
     }
 
     public void undoMove(MouseEvent mouseEvent) {
@@ -78,6 +83,17 @@ public class Controleur implements Initializable {
                 this.modl.annuler();
                 drawShapes();
             }
+        }
+    }
+
+    public void modif_clavier() {
+        if (this.modl.état == Modele.Etat.GAGNE) {
+            clavier.getChildren().clear();
+            clavier.getChildren().add(new Label("Victoire !"));
+        }
+        else if (this.modl.état == Modele.Etat.PERDU) {
+            clavier.getChildren().clear();
+            clavier.getChildren().add(new Label("Perdu..."));
         }
     }
 
