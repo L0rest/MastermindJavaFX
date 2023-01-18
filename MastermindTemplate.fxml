@@ -6,7 +6,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProjetJava.MastermindJavaFX.Controleur">
    <bottom>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="360.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <HBox fx:id="clavier" alignment="CENTER" prefHeight="50.0" prefWidth="360.0" spacing="10.0" BorderPane.alignment="CENTER">
          <Button mnemonicParsing="false" onAction="#addColor" prefHeight="30" prefWidth="30" style="-fx-background-color: yellow; -fx-border-color: black" />
          <Button mnemonicParsing="false" onAction="#addColor" prefHeight="30" prefWidth="30" style="-fx-background-color: green; -fx-border-color: black" />
          <Button mnemonicParsing="false" onAction="#addColor" prefHeight="30" prefWidth="30" style="-fx-background-color: blue; -fx-border-color: black" />
