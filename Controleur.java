@@ -5,6 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 import java.awt.*;
 import java.net.URL;
@@ -44,8 +46,7 @@ public class Controleur implements Initializable {
 
     public void drawShapes() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
-
-
+        gc.clearRect(0.0,0.0, canvas.getWidth(), canvas.getHeight());
 
         for (int i = 0; i < this.modl.propositions.length; i++) {
             if (this.modl.propositions[i] != null) {
@@ -67,6 +68,15 @@ public class Controleur implements Initializable {
                     }
                 }
 
+            }
+        }
+    }
+
+    public void undoMove(MouseEvent mouseEvent) {
+        if (mouseEvent.getButton() == MouseButton.PRIMARY) {
+            if (mouseEvent.getClickCount() == 2) {
+                this.modl.annuler();
+                drawShapes();
             }
         }
     }
