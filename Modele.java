@@ -111,4 +111,36 @@ public class Modele extends Observable {
 
     }
 
+    public Etat getÉtat() {
+        return état;
+    }
+
+    public void setÉtat(Etat état) {
+        this.état = état;
+    }
+
+    public Rangee getCombinaison() {
+        return combinaison;
+    }
+
+    public void setCombinaison(Rangee combinaison) {
+        this.combinaison = combinaison;
+    }
+
+    public Rangee[] getPropositions() {
+        return propositions;
+    }
+
+    public void setPropositions(Rangee[] propositions) {
+        this.propositions = propositions;
+    }
+
+    public int getTentative() {
+        return tentative;
+    }
+
+    public void setTentative(int tentative) {
+        this.tentative = tentative;
+    }
+
 }
