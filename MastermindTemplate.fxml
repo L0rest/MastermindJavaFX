@@ -18,6 +18,6 @@
       </HBox>
    </bottom>
    <top>
-      <Canvas height="650.0" width="360.0" BorderPane.alignment="CENTER" />
+      <Canvas fx:id="canvas" height="650.0" width="360.0" BorderPane.alignment="CENTER" />
    </top>
 </BorderPane>
