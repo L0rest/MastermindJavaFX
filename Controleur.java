@@ -66,7 +66,7 @@ public class Controleur implements Initializable {
                         gcanv.setFill(javafx.scene.paint.Color.BLACK);
                         gcanv.fillOval(270 + (20 * j), (60 * i) + 10, 15, 15);
                     } else {
-                        gcanv.setFill(javafx.scene.paint.Color.DARKGRAY);
+                        gcanv.setFill(javafx.scene.paint.Color.WHITE);
                         gcanv.fillOval(270 + (20 * j), (60 * i) + 10, 15, 15);
                     }
                 }
