@@ -20,7 +20,7 @@ public class Controleur implements Initializable {
     public Canvas canvas;
     public HBox clavier;
     Modele modl;
-    public HashMap<String,Color> couleurs = new HashMap<>();
+    public HashMap<String, Color> couleurs = new HashMap<>();
 
     public void insertionsCouleursDico() {
         couleurs.put("0xffff00ff", Color.YELLOW);
@@ -49,7 +49,7 @@ public class Controleur implements Initializable {
 
     public void drawShapes() {
         GraphicsContext gcanv = canvas.getGraphicsContext2D();
-        gcanv.clearRect(0.0,0.0, canvas.getWidth(), canvas.getHeight());
+        gcanv.clearRect(0.0, 0.0, canvas.getWidth(), canvas.getHeight());
 
         for (int i = 0; i < this.modl.propositions.length; i++) {
             if (this.modl.propositions[i] != null) {
@@ -90,8 +90,7 @@ public class Controleur implements Initializable {
         if (this.modl.état == Modele.Etat.GAGNE) {
             clavier.getChildren().clear();
             clavier.getChildren().add(new Label("Victoire !"));
-        }
-        else if (this.modl.état == Modele.Etat.PERDU) {
+        } else if (this.modl.état == Modele.Etat.PERDU) {
             clavier.getChildren().clear();
             clavier.getChildren().add(new Label("Perdu..."));
         }
