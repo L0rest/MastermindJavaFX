@@ -18,6 +18,10 @@
       </HBox>
    </bottom>
    <top>
-      <Canvas fx:id="canvas" height="650.0" onMouseClicked="#undoMove" width="360.0" BorderPane.alignment="CENTER" />
+      <StackPane style="-fx-background-color: lightgray;" BorderPane.alignment="CENTER">
+         <children>
+            <Canvas fx:id="canvas" height="650.0" onMouseClicked="#undoMove" width="360.0" />
+         </children>
+      </StackPane>
    </top>
 </BorderPane>
