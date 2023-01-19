@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.net.URL;
 
 public class Launcher extends Application {
@@ -18,8 +17,11 @@ public class Launcher extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         URL url = getClass().getResource("MastermindTemplate.fxml");
-        File file = new File(url.getPath());
-        Parent root = FXMLLoader.load(file.toURL());
+        FXMLLoader loader = new FXMLLoader(url);
+        Controleur control = new Controleur();
+        loader.setController(control);
+
+        Parent root = loader.load();
 
         Scene scene = new Scene(root);
 
