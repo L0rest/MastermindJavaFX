@@ -55,8 +55,7 @@ public class Modele extends Observable {
                 r.noirs++;
                 rComb.remove(i);
                 rProp.remove(i);
-            }
-            else {
+            } else {
                 i++;
             }
         }
@@ -79,9 +78,8 @@ public class Modele extends Observable {
 
         rangee_cour.jetons[rangee_cour.indiceJeton] = c;
         if (rangee_cour.indiceJeton < 3) {
-            rangee_cour.indiceJeton ++;
-        }
-        else {
+            rangee_cour.indiceJeton++;
+        } else {
             evaluer(rangee_cour);
         }
 
@@ -101,7 +99,7 @@ public class Modele extends Observable {
         Rangee rangee_cour = this.propositions[this.tentative];
 
         if (rangee_cour.indiceJeton > 0) {
-            rangee_cour.indiceJeton --;
+            rangee_cour.indiceJeton--;
             rangee_cour.jetons[rangee_cour.indiceJeton] = null;
             archiver(rangee_cour);
 
