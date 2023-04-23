@@ -19,7 +19,7 @@ public class Controleur implements Initializable {
 
     public Canvas canvas;
     public HBox clavier;
-    Modele modl;
+    private Modele modl;
     public HashMap<String, Color> couleurs = new HashMap<>();
 
     public void insertionsCouleursDico() {
